@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26ECBA0B79404B52A5A88A42 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C820FB409A514D9B836AC3F6 /* libPods.a */; };
 		66AEF4A6188E4714001D8016 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66AEF4A5188E4714001D8016 /* Foundation.framework */; };
 		66AEF4A8188E4714001D8016 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66AEF4A7188E4714001D8016 /* CoreGraphics.framework */; };
 		66AEF4AA188E4714001D8016 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66AEF4A9188E4714001D8016 /* UIKit.framework */; };
@@ -53,6 +54,8 @@
 		66AEF4CC188E4715001D8016 /* CocoaPodsTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CocoaPodsTestTests-Info.plist"; sourceTree = "<group>"; };
 		66AEF4CE188E4715001D8016 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		66AEF4D0188E4715001D8016 /* CocoaPodsTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CocoaPodsTestTests.m; sourceTree = "<group>"; };
+		77AC5870A34C4FE7A5A96F13 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C820FB409A514D9B836AC3F6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,7 @@
 				66AEF4A8188E4714001D8016 /* CoreGraphics.framework in Frameworks */,
 				66AEF4AA188E4714001D8016 /* UIKit.framework in Frameworks */,
 				66AEF4A6188E4714001D8016 /* Foundation.framework in Frameworks */,
+				26ECBA0B79404B52A5A88A42 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +90,7 @@
 				66AEF4CA188E4715001D8016 /* CocoaPodsTestTests */,
 				66AEF4A4188E4714001D8016 /* Frameworks */,
 				66AEF4A3188E4714001D8016 /* Products */,
+				77AC5870A34C4FE7A5A96F13 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +110,7 @@
 				66AEF4A7188E4714001D8016 /* CoreGraphics.framework */,
 				66AEF4A9188E4714001D8016 /* UIKit.framework */,
 				66AEF4C4188E4715001D8016 /* XCTest.framework */,
+				C820FB409A514D9B836AC3F6 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,9 +165,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 66AEF4D4188E4715001D8016 /* Build configuration list for PBXNativeTarget "CocoaPodsTest" */;
 			buildPhases = (
+				42E9FC7A70664FD582B384FC /* Check Pods Manifest.lock */,
 				66AEF49E188E4714001D8016 /* Sources */,
 				66AEF49F188E4714001D8016 /* Frameworks */,
 				66AEF4A0188E4714001D8016 /* Resources */,
+				6CFCBDAF61F64AC49A97559A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,6 +251,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		42E9FC7A70664FD582B384FC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6CFCBDAF61F64AC49A97559A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		66AEF49E188E4714001D8016 /* Sources */ = {
@@ -375,26 +416,38 @@
 		};
 		66AEF4D5188E4715001D8016 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77AC5870A34C4FE7A5A96F13 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaPodsTest/CocoaPodsTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/JSONKit\"",
+				);
 				INFOPLIST_FILE = "CocoaPodsTest/CocoaPodsTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		66AEF4D6188E4715001D8016 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77AC5870A34C4FE7A5A96F13 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocoaPodsTest/CocoaPodsTest-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/JSONKit\"",
+				);
 				INFOPLIST_FILE = "CocoaPodsTest/CocoaPodsTest-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -460,6 +513,7 @@
 				66AEF4D6188E4715001D8016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66AEF4D7188E4715001D8016 /* Build configuration list for PBXNativeTarget "CocoaPodsTestTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +522,7 @@
 				66AEF4D9188E4715001D8016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
